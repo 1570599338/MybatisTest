@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias alias="Read" type="com.lquan.test.models.ReadUser" />
+		<typeAlias alias="Post" type="com.lquan.test.models.Post" />
+	</typeAliases>
+	<environments default="development">
+	    <environment id="development">
+		<transactionManager type="JDBC" />
+			<dataSource type="POOLED">  
+                            <property name="driver" value="com.mysql.jdbc.Driver" />
+			    <property name="url" value="jdbc:mysql://182.92.174.166:3309/dbtest" />
+			    <property name="username" value="admin" />
+			    <property name="password" value="admin166" />
+                       </dataSource>
+		</environment>
+	</environments>
+
+	<mappers>
+	     <!-- // power by http://www.yiibai.com -->
+	     <mapper resource="com/lquan/test/models/User4.xml" />
+	</mappers>
+</configuration>
