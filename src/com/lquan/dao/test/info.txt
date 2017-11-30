@@ -1,1 +1,3 @@
 1.Test1 是测试MyBatis环境配置及入门
+2.Test2 是Mybatis接口注解测试
+3.Test3 Mybatis增删改查（CURD）

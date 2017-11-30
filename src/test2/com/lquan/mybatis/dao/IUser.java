@@ -1,5 +1,7 @@
 package test2.com.lquan.mybatis.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Select;
 
 import com.lquan.test.models.User;
@@ -15,4 +17,5 @@ public interface IUser {
 
 	@Select("select * from user where id= #{id}")
     public User getUserByID(int id);
+	
 }
