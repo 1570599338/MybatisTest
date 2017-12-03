@@ -33,6 +33,7 @@ public class Test4_1 {
 	}
 	
 	
+	
 	public static SqlSessionFactory getSession() {
 		return sqlSessionFactory;
 	}
