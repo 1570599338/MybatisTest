@@ -46,9 +46,43 @@ public class Test3 {
 		
 		// getUserList();
 		
-		testUpdate();
+		testInsert();
 
 	}
+    //
+    public static void testInsert()
+    {
+        try
+        {
+            // 获取Session连接
+            SqlSession session = sqlSessionFactory.openSession();
+            // 获取Mapper
+            IUser3 userMapper = session.getMapper(IUser3.class);
+            System.out.println("Test insert start...");
+            // 执行插入
+            User user = new User();
+           // user.setId(0);
+            user.setName("Google");
+            user.setDept("Tech");
+            user.setWebsite("http://www.google.com");
+            user.setPhone("120");
+            System.out.println("插入前"+user.getId());
+            userMapper.insertUser(user);
+            System.out.println("插入后"+user.getId());
+            // 提交事务
+            session.commit();
+
+            
+            // 显示插入之后User信息
+            System.out.println("After insert");
+            getUserList();
+            System.out.println("Test insert finished...");
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
 
     // 获取用户列表
     public static void getUserList() {

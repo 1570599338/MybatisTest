@@ -2,3 +2,5 @@
 2.Test2 是Mybatis接口注解测试
 3.Test3 Mybatis增删改查（CURD）
 4.Test4 Mybatis增删改查（CURD）
+5，Test4_1 测试Myatis的查询列表的List
+6，Test4_2测试Mybatis的查询列表多惨情况下。

@@ -8,7 +8,7 @@
         SELECT *FROM USER WHERE id = #{userId}
     </select>
 
-    <insert id="insertUser" parameterType="Userx">
+    <insert id="insertUser" parameterType="Userx" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO USER(name, dept, website,phone) VALUES(#{name}, #{dept}, #{website}, #{phone})
     </insert>
 

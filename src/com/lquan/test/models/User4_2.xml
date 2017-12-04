@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lquan.test.userMapper">
+	<!-- User 级联文章查询 方法配置 (一个用户对多个文章) 
+	<resultMap type="Read" id="resultUserMap">
+		<result property="id" column="id" />
+		<result property="username" column="username" />
+		<result property="mobile" column="mobile" />
+		<collection property="posts" ofType="com.lquan.test.models.Post" column="userid">
+			<id property="id" column="post_id" javaType="int" jdbcType="INTEGER"/>    
+            <result property="title" column="title" javaType="string" jdbcType="VARCHAR"/>
+            <result property="content" column="content" javaType="string" jdbcType="VARCHAR"/> 
+		</collection>
+	</resultMap>
+
+	<select id="getReadUser" resultMap="resultUserMap" parameterType="Post">
+		SELECT u.*,p.*
+		FROM readuser u, post p
+		WHERE u.id=p.userid AND id=#{id} 
+  </select> -->
+  
+  <select id="getUserListLike" resultType="com.lquan.test.models.User"  >
+  	<bind name="name" value="'%'+_parameter+'%'"/>
+  	select  id,
+		  	name,
+		  	dept,
+		  	website,
+		  	phone 
+  	from user where name like #{name}
+  
+  </select>
+  
+  
+      <select id="getUserList" parameterType="map" resultType="User">
+        SELECT 
+        	id as id,
+        	name as name,
+        	dept as dept,
+        	phone as phone,
+        	website as website
+         FROM user where name=#{name} and dept=#{dept}
+    </select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
