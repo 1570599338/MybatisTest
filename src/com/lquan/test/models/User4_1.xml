@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.lquan.test.models">
+<mapper namespace="com.lquan.test.userMapper">
 	<!-- User 级联文章查询 方法配置 (一个用户对多个文章) 
 	<resultMap type="Read" id="resultUserMap">
 		<result property="id" column="id" />
@@ -21,19 +21,24 @@
 		WHERE u.id=p.userid AND id=#{id} 
   </select> -->
   
-  <select id="getUserListLike" resultMap="com.lquan.test.models.User"  >
-  	<bind name="name" value="'%'+_parameter+'%'"/>
+   <select id="getUserListLike" resultType="com.lquan.test.models.User"  >
+  	<bind name="namex" value="'%'+_parameter.name+'%'"/>
   	select  id,
 		  	name,
 		  	dept,
 		  	website,
 		  	phone 
-  	from user where name like #{name}
+  	from user where name like #{namex}
   
   </select>
+  <!--id as id,
+        	name as name,
+        	dept as dept,
+        	phone as phone,
+        	website as website -->
   
-      <select id="getUserList" resultType="com.lquan.test.models.User">
-        SELECT * FROM USER
+    <select id="getUserList" resultType="User" >
+        SELECT * FROM user
     </select>
 </mapper>
 

@@ -3,8 +3,7 @@
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias alias="Read" type="com.lquan.test.models.ReadUser" />
-		<typeAlias alias="Post" type="com.lquan.test.models.Post" />
+		<typeAlias alias="User" type="com.lquan.test.models.User" />
 	</typeAliases>
 	<environments default="development">
 	    <environment id="development">

@@ -45,8 +45,6 @@ public class Test4 {
                  for(Post p : posts) {
                      System.out.println("post:"+p.toString()); 
                  }
-		
-
 	}
 
 }

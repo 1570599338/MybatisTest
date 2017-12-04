@@ -25,7 +25,7 @@ public class Test4_1 {
 	
 	static {
 		try {
-			reader = Resources.getResourceAsReader("config/Configure4_1.xml");
+			reader = Resources.getResourceAsReader("config/Configure41.xml");
 			sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -39,8 +39,10 @@ public class Test4_1 {
 	}
 
 	public static void main(String[] args) {
+		User userx = new User();
+		userx.setName("lq");
 		SqlSession session = sqlSessionFactory.openSession();
-		List<User> user = session.selectList("com.lquan.test.models.getUserList", "lq"); 
+		List<User> user = session.selectList("com.lquan.test.userMapper.getUserListLike",userx); 
 	     System.out.println("用户："+user.toString());
 //                 List<Post> posts = user.getPosts();  
                  for(User p : user) {
