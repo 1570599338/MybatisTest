@@ -3,7 +3,7 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.lquan.test.userMapper">
-	<!-- User 级联文章查询 方法配置 (一个用户对多个文章)  -->
+	<!-- User 级联文章查询 方法配置 (一个用户对多个文章) 
 	<resultMap type="Read" id="resultUserMap">
 		<result property="id" column="id" />
 		<result property="username" column="username" />
@@ -19,9 +19,9 @@
 		SELECT u.*,p.*
 		FROM readuser u, post p
 		WHERE u.id=p.userid AND id=#{id} 
-  </select>
+  </select> 
   
-  <select id="getUserListLike" resultMap="com.lquan.test.models.User"  >
+  <select id="getUserListLike" resultType="com.lquan.test.models.User"  >
   	<bind name="name" value="'%'+_parameter+'%'"/>
   	select  id,
 		  	name,
@@ -31,16 +31,37 @@
   	from user where name like #{name}
   
   </select>
-  
-  
-      <select id="getUserList" resultType="User">
+  -->
+<!-- 参数类型为map -->  
+  <select id="getUserList" parameterType="map" resultType="User">
         SELECT 
         	id as id,
         	name as name,
         	dept as dept,
         	phone as phone,
         	website as website
-         FROM user
+         FROM user where 1=1 
+         <if test="name!=NULL">
+         	and name=#{name} 
+         </if>
+         <if test="dept!=NULL">
+         	and dept=#{dept}
+         </if>
+         <if test="id!=null">
+         	 and id=#{id}
+         </if>
+         <if test="phone!=null">
+         	 and phone=#{phone}
+         </if>
+    </select>
+    
+     
+       <select id="getUserListparamList"  resultType="User" >
+        SELECT * FROM user where 1=1 
+	         and id in 
+	         <foreach collection="list" item="id" index="index" open="(" separator="," close=")" >
+				#{id}         
+	         </foreach>
     </select>
 </mapper>
 
