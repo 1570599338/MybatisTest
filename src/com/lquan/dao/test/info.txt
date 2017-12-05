@@ -4,6 +4,6 @@
 4.Test4 Mybatis增删改查（CURD）
 5.Test4_1 测试Myatis的查询列表的List
 6.Test4_2测试Myb
-7.Test5 测试传入参数为map类型
+7.Test5 测试传入参数为map类型，list类型
 8.
 9.
