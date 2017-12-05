@@ -70,9 +70,18 @@ public class Test5 {
 		listx.add(3);
 		List<User> u = session.selectList("com.lquan.test.userMapper.getUserListparamList",listx);
 		System.out.println("数量xx："+u.size()+"：参数类型map"+u.toString());
-		
-
 	}
 	
 
+	/**
+	 * 传入参数是数组类型
+	 */
+	@Test
+	public  void testparArray() {
+		
+		SqlSession session = sqlSessionFactory.openSession();
+		int[] id = {1,2,4};
+		List<User> u = session.selectList("com.lquan.test.userMapper.getUserListparamArray",id);
+		System.out.println("数组参数-数量："+u.size()+"：参数类型map"+u.toString());
+	}
 }
