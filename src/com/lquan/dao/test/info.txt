@@ -5,5 +5,5 @@
 5.Test4_1 测试Myatis的查询列表的List
 6.Test4_2测试Myb
 7.Test5 测试传入参数为map类型，list类型
-8.
+8.Test6 测试mybatis执行存储过程
 9.
